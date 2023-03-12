@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import RadioButtonField from './components/RadioButtonField.vue';
+import ToDoTable from './components/ToDoTable.vue';
 </script>
 
 <template>
@@ -9,16 +10,18 @@ import RadioButtonField from './components/RadioButtonField.vue';
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-            </div>
-          </header>
+              <HelloWorld msg="You did it!" />
+                      </div>
+                    </header>
 
-          <main>
-            <TheWelcome />
-          </main> -->
+                    <main>
+                      <TheWelcome />
+                    </main> -->
 
   <!-- 絞り込みラジオボタン -->
   <RadioButtonField v-model="current" v-bind:options="options" name="StateFilterRadio"></RadioButtonField>
+  <!-- ToDo テーブル -->
+  <ToDoTable v-bind:current="current"></ToDoTable>
 </template>
 
 <script>
@@ -36,7 +39,7 @@ export default {
       current: -1,
     };
   },
-  components: { RadioButtonField }
+  components: { RadioButtonField, ToDoTable }
 }
 </script>
 
