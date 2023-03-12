@@ -1,6 +1,6 @@
 <template>
     <fieldset>
-        <label v-for="option in options" :key="option.value">
+        <label v-for="option in options" v-bind:key="option.value">
             <input type="radio" v-bind:value="option.value" v-bind:checked="option.value == modelValue"
                 v-on:change="updateValue">
             {{ option.label }}
