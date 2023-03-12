@@ -1,24 +1,44 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import StateFilter from './components/StateFilter.vue';
 import TheWelcome from './components/TheWelcome.vue'
+import RadioButtonField from './components/RadioButtonField.vue';
 </script>
 
 <template>
   <!-- <header>
-      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-        <div class="wrapper">
-        <HelloWorld msg="You did it!" />
-        </div>
-        </header> -->
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+            </div>
+          </header>
 
-  <!-- <main>
-        <TheWelcome />
-      </main> -->
+          <main>
+            <TheWelcome />
+          </main> -->
 
-  <StateFilter />
+  <!-- 絞り込みラジオボタン -->
+  <RadioButtonField v-model="current" v-bind:options="options" name="StateFilterRadio"></RadioButtonField>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      // 状態での絞り込みの選択肢
+      options: [
+        { value: -1, label: "すべて" },
+        { value: 0, label: "作業中" },
+        { value: 1, label: "完了" }
+      ],
+      // 選択している options の value を記憶するためのデータ
+      // 初期値を「-1」つまり「すべて」にする
+      current: -1,
+    };
+  },
+  components: { RadioButtonField }
+}
+</script>
 
 <style scoped>
 header {
